@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
+        <meta charset="ISO-8859-1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Smartrr Dashboard</title>
     </head>
     <body>
-        <h1>
-            <div>
-                
-            </div>
-        </h1>
+        <!-- Takes the value of a myShopifyDomain field as an input and returns their optimization settings. -->
+        <h1>Find Optimization Settings</h1>
+        <input type="text" id="shopifyDomain" placeholder="Enter Shopify Domain">
+        <button onclick="returnOptimizationSettings()">Get Optimization Settings</button>
+        <pre id="report1SettingResults"></pre>
+
+        <!-- Loops through all organizations and shows the date they were created (DD/MM/YYYY), their status, and planName sorted by oldest to newest. -->
+        <h2>Show Organization Date, Status, & Plan Name</h2>
+        <button onclick="showDateStatusPlan()">D/S/P</button>
+        <pre id="report2PlanResults"></pre>
+
+        <!-- Returns the list of organizations whose status is cancelled. -->
+        <h1>Report 3: See Cancelled Organizations</h1>
+        <button onclick="returnCancelledOrgs()">Cancelled</button>
+        <pre id="report3OrgResults"></pre>
+
+        <!-- Takes the value of an orgName and returns the organization record in JSON format -->
+        <h2>Report 4: Organization Record</h2>
+        <input type="text" id="orgName" placeholder="Enter Organization Name">
+        <button onclick="returnOrgNameRecord()">Organization Name</button>
+        <pre id="report4RecordResults"></pre>
+
+        <script src="script.js"></script>
     </body>
 </html>

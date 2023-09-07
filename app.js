@@ -4,7 +4,7 @@ const app = express();
 const sqlite3 = require('sqlite3');
 const port = 3000;
 
-const db = new sqlite3.Database('tables.db');
+const db = new sqlite3.Database('tables/tables.db');
 
 app.use(express.json());
 
@@ -17,6 +17,8 @@ app.use(express.json());
             FROM account
             WHERE shopifyId = ?;
             `;
+            console.log('Executing query:', query);
+
         db.get(query, [myShopifyDomain], (err, row) => {
             if (err) {
                 console.error('Error:', err);
@@ -24,6 +26,7 @@ app.use(express.json());
             } else if (row) {
                 res.json(JSON.parse(row.features));
             } else {
+                console.log('No result found for Shopify Domain:', myShopifyDomain);
                 res.status(404).json({error: 'No Shopify Domain Not Found'});
             }
         });
@@ -32,14 +35,14 @@ app.use(express.json());
 
 //Report #2 - Loops through all organizations and shows the date they were created (DD/MM/YYYY), their status, and planName sorted by oldest to newest.
 
-    app.get('/report', (req, res) => {
+    app.get('/report2',(_, res) => {
         const query = `
             SELECT strftime('%d/%m/%y', createDate) AS createdDate, status, planName
             FROM organization
             ORDER BY createdDate;
             `;
 
-        bd.all(query,[], (err, rows) => {
+        db.all(query,[], (err, rows) => {
             if (err) {
                 console.error('Error:', err);
                 res.status(500).json({error: 'Internal Server Error'});
@@ -52,7 +55,7 @@ app.use(express.json());
 
 //Report #3 - Returns the list of organizations whose status is cancelled.
 
-    app.get('/report3', (req, res) => {
+    app.get('/report3', (_, res) => {
         const query = `
             SELECT *
             FROM organization
@@ -96,7 +99,7 @@ app.use(express.json());
     
 
     app.listen(port, () => {
-        console.log('"Server is running on port ${port}');
+        console.log(`Server is running on port ${port}`);
     });
 
 
