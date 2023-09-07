@@ -90,7 +90,7 @@ Skills Demonstrated:
 -Smartrr Test Data
 - [Towards Data Science](https://towardsdatascience.com/5-ways-to-query-your-relational-db-using-javascript-d5499711fc7d)
 - [Javascript.info](https://javascript.info/function-basics )
-- [Developer Mozilla] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions )
+- [Developer Mozilla] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
 - [UI Bakery Docs](https://docs.uibakery.io/basics/sql-+-javascript )
 - [Developer Mozilla]( https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction)
 - [Stack Overflow](https://stackoverflow.com/questions/49840094/how-to-write-a-parameterized-sql-query-in-javascript)
