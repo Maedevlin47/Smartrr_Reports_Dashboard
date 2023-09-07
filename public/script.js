@@ -3,8 +3,8 @@
 function displayResult(result, elementId) {
     const resultElement = document.getElementById(elementId);
     resultElement.innerHTML = JSON.stringify(result, null, 2);
-  }
-  
+}
+
 // 1st Report 
 
     function returnOptimizationSettings() {
@@ -13,7 +13,7 @@ function displayResult(result, elementId) {
         fetch(`/report1?myShopifyDomain=${shopifyDomain}`)
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                    throw new Error('Request failed with status ' + response.status);
                 }
                 return response.json();
                 })
@@ -32,7 +32,7 @@ function displayResult(result, elementId) {
         fetch('/report2')
             .then((response)=> {
                 if (!response.ok) {
-                    throw new Error('Network Response Failed');
+                    throw new Error('Request failed with status ' + response.status);
                 }
                 return response.json();
             })
@@ -53,7 +53,7 @@ function displayResult(result, elementId) {
         fetch('/report3')
             .then((response) => {
                 if (!response.ok){
-                    throw new Error('Network Response Error');
+                    throw new Error('Request failed with status ' + response.status);
                 }
                 return response.json();
             })
@@ -74,7 +74,7 @@ function displayResult(result, elementId) {
         fetch(`/report4?orgName=${orgName}`)
             .then ((response) => {
                 if (!response.ok) {
-                    throw new Error('Network Response Error');
+                    throw new Error('Request failed with status ' + response.status);
                 }
             return response.json();
             })

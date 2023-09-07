@@ -17,17 +17,23 @@ app.use(express.json());
             FROM account
             WHERE shopifyId = ?;
             `;
-            console.log('Executing query:', query);
+        console.log('Executing query:', query);
 
         db.get(query, [myShopifyDomain], (err, row) => {
             if (err) {
                 console.error('Error:', err);
-                res.status(500).json({error: 'Internal Server Error'});
+                res.status(500).json({ error: 'Internal Server Error' });
             } else if (row) {
-                res.json(JSON.parse(row.features));
+                try {
+                    const optimizationSettings = JSON.parse(row.features);
+                    res.json(optimizationSettings);
+                } catch (parseError) {
+                    console.error('JSON Parsing Error:', parseError);
+                    res.status(500).json({ error: 'Error Parsing Optimization Settings' });
+                }
             } else {
-                console.log('No result found for Shopify Domain:', myShopifyDomain);
-                res.status(404).json({error: 'No Shopify Domain Not Found'});
+                console.log('No Result For Shopify Domain:', myShopifyDomain);
+                res.status(404).json({ error: 'No Shopify Domain Found' });
             }
         });
 
@@ -41,6 +47,7 @@ app.use(express.json());
             FROM organization
             ORDER BY createdDate;
             `;
+        console.log('Executing query:', query);
 
         db.all(query,[], (err, rows) => {
             if (err) {
@@ -61,6 +68,7 @@ app.use(express.json());
             FROM organization
             WHERE status = 'CANCELLED';
             `;
+        console.log('Executing query:', query);
 
         db.all(query,[],(err,rows) => {
             if (err) {
@@ -82,7 +90,8 @@ app.use(express.json());
                 FROM organization
                 WHERE orgName = ?;
                 `;
-    
+        console.log('Executing query:', query);
+
         db.get(query, [orgName], (err,row) => {
             if (err) {
                 console.error('Error:', err);
