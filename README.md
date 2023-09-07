@@ -37,7 +37,8 @@ To run the Smartrr Reports Dashboard app locally:
   1. Open your local terminal or command prompt.
   2. cd “ the project directory folder you created”.
   3. Clone the repository to your local machine:
-                IMAGE
+
+![Image 9-7-23 at 4 46 PM](https://github.com/Maedevlin47/Smartrr_Reports_Dashboard/assets/111152027/f97321f3-cb15-47f6-a46d-0235261893dd)
 
 
   4. git clone git@github.com:Maedevlin47/Smartrr_Reports_Dashboard.git
