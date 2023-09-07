@@ -33,65 +33,68 @@ SQL queries folder has 4 queries files to return the following:
 ## Installation
 
 To run the Smartrr Reports Dashboard app locally:
-
   1. Open your local terminal or command prompt.
   2. cd “ the project directory folder you created”.
   3. Clone the repository to your local machine:
 
-![Image 9-7-23 at 4 46 PM](https://github.com/Maedevlin47/Smartrr_Reports_Dashboard/assets/111152027/f97321f3-cb15-47f6-a46d-0235261893dd)
-
+![Image 9-7-23 at 4 46 PM](https://github.com/Maedevlin47/Smartrr_Reports_Dashboard/assets/111152027/8558c2e6-b1c6-44c0-9cf2-0187da95b848)
 
   4. git clone git@github.com:Maedevlin47/Smartrr_Reports_Dashboard.git
   3. Open project directory in code editor(code .):
-            
-    IMAGE
 
+![Image 9-7-23 at 4 46 PM (1) 2](https://github.com/Maedevlin47/Smartrr_Reports_Dashboard/assets/111152027/af076c2d-c998-4e53-bbef-3fc4d9338dd6)
+    
   5. Install required dependencies:
       - npm install express
       - npm install
       - npm start OR node app.js
-
   6. Open your web browser and access the app at http://localhost:3000.
 
-##Usage
+## Usage
 
-Report #1: Get Optimization Settings
+Report #1: Get Optimization Settings:
+
 1. Enter the Shopify domain in the input field labeled "Shopify Domain."
-2. Click the "Get Optimization Settings" button. OR use a tool like Postman, curl, or web browser to make a GET request to the /report1 endpoint:
-IMAGE
-	
-  http://localhost:3000/report3
-3. The app will display the optimization settings for the entered domain.
+2. Click the "Get Optimization Settings" button. OR use a tool like Postman, curl, or web browser,(http://localhost:3000/report3
+)to make a GET request to the /report1 endpoint:
 
-Report #2: List Organizations
+   ![Image 9-7-23 at 5 13 PM](https://github.com/Maedevlin47/Smartrr_Reports_Dashboard/assets/111152027/cbd653f3-0453-41c1-b382-20fc6c1574dc)
+   
+4. The app will display the optimization settings for the entered domain.
+
+Report #2: List Organizations:
+
 1. Click the "List Organizations" button. OR use a tool like Postman, curl, or web browser to make a GET request to the /report2 endpoint.
 2. The app will display a table with  information about all organizations, including creation date, status, and planName, sorted by creation date. 
 
-Report #3: List Cancelled Organizations
-1. Click the "List Canceled Organizations" button. The app will display a list of organizations with a "CANCELLED" status.
+Report #3: List Cancelled Organizations:
 
-Report #4: Get Organization Record
+1. Click the "List Canceled Organizations" button. OR use a tool like Postman, curl, or web browser to make a GET request to the /report2 endpoint.
+2. The app will display a list of organizations with a "CANCELLED" status.
+
+Report #4: Get Organization Record:
+
 1. Enter the organization name in the input field labeled "Organization Name."
 2. Click the "Get Organization Record" button. OR use a tool like Postman, curl, or web browser to make a GET request to the /report2 endpoint. 
 3. The app will display the organization's record in JSON format.
 
-Technology Stack:
+## Technology Stack
 - JavaScript
 - Express.js
 - SQL
 - SQLite3
 
-Skills Demonstrated:
+## Skills Demonstrated
 - Building a web-based application using Express.js.
 - Querying an SQLite database.
 - Handling API/RESTful API requests and responses.
 - Front-end development with HTML and JavaScript.
 
-##Credits
+## Credits
 -Smartrr Test Data
 - [Towards Data Science](https://towardsdatascience.com/5-ways-to-query-your-relational-db-using-javascript-d5499711fc7d)
 - [Javascript.info](https://javascript.info/function-basics )
-- [Developer Mozilla] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
+- [Developer Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
 - [UI Bakery Docs](https://docs.uibakery.io/basics/sql-+-javascript )
 - [Developer Mozilla]( https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction)
 - [Stack Overflow](https://stackoverflow.com/questions/49840094/how-to-write-a-parameterized-sql-query-in-javascript)
