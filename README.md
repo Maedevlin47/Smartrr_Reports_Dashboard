@@ -103,3 +103,5 @@ Report #4: Get Organization Record:
 - [Sqlite Tutorial](https://www.sqlitetutorial.net/sqlite-nodejs/)
 - [Npmjs](https://www.npmjs.com/package/sqlite3)
 - [LogRocket Blog](https://blog.logrocket.com/detailed-look-basic-sqljs-features/)
+- [Silota](http://www.silota.com/docs/recipes/sql-join-tutorial-javascript-examples.html)
+
