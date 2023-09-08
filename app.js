@@ -13,9 +13,9 @@ app.use(express.json());
     app.get('/report1',(req, res) => {
         const {myShopifyDomain} = req.query;
         const query = 
-            `SELECT features
-            FROM account
-            WHERE shopifyId = ?;
+            `SELECT setup
+            FROM organization
+            WHERE myShopifyDomain = ?;
             `;
         console.log('Executing query:', query);
 
@@ -23,9 +23,9 @@ app.use(express.json());
             if (err) {
                 console.error('Error:', err);
                 res.status(500).json({ error: 'Internal Server Error' });
-            } else if (row) {
+            } else if (row && row.setup !== null) {
                 try {
-                    const optimizationSettings = JSON.parse(row.features);
+                    const optimizationSettings = JSON.parse(row.setup);
                     res.json(optimizationSettings);
                 } catch (parseError) {
                     console.error('JSON Parsing Error:', parseError);
@@ -33,53 +33,52 @@ app.use(express.json());
                 }
             } else {
                 console.log('No Result For Shopify Domain:', myShopifyDomain);
-                res.status(404).json({ error: 'No Shopify Domain Found' });
+                res.status(404).json({ error: 'No Optimization Settings Found for Shopify Domain' });
             }
         });
-
     });
 
 //Report #2 - Loops through all organizations and shows the date they were created (DD/MM/YYYY), their status, and planName sorted by oldest to newest.
 
-    app.get('/report2',(_, res) => {
+    app.get('/report2', (_, res) => {
         const query = `
-            SELECT strftime('%d/%m/%y', createDate) AS createdDate, status, planName
-            FROM organization
-            ORDER BY createdDate;
-            `;
+            SELECT strftime('%d/%m/%Y', o.createdDate) AS createdDate, a.status, a.planName
+            FROM organization AS o
+            LEFT JOIN account AS a ON o.id = a.organizationId
+            ORDER BY o.createdDate;
+        `;
         console.log('Executing query:', query);
 
-        db.all(query,[], (err, rows) => {
+        db.all(query, [], (err, rows) => {
             if (err) {
                 console.error('Error:', err);
-                res.status(500).json({error: 'Internal Server Error'});
+                res.status(500).json({ error: 'Internal Server Error' });
             } else {
                 res.json(rows);
             }
-        });    
+        });
     });
-
 
 //Report #3 - Returns the list of organizations whose status is cancelled.
 
     app.get('/report3', (_, res) => {
         const query = `
-            SELECT *
-            FROM organization
-            WHERE status = 'CANCELLED';
-            `;
+            SELECT o.orgName
+            FROM organization AS o
+            LEFT JOIN account AS a ON o.id = a.organizationId
+            WHERE a.status = 'CANCELLED';
+        `;
         console.log('Executing query:', query);
 
-        db.all(query,[],(err,rows) => {
+        db.all(query, [], (err, rows) => {
             if (err) {
                 console.error('Error:', err);
-                res.status(500).json({error: 'Internal Server Error'});
-            } else { 
+                res.status(500).json({ error: 'Internal Server Error' });
+            } else {
                 res.json(rows);
             }
         });
     });
-
 
 //Report #4 - Takes the value of an orgName and returns the organization record in JSON format.
 
