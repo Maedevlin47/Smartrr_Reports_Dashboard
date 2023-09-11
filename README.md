@@ -48,35 +48,70 @@ To run the Smartrr Reports Dashboard app locally:
       - npm install express
       - npm install
       - npm start OR node app.js
+      - npm install sqlite3
+      - sqlite3 table.db
   6. Open your web browser and access the app at http://localhost:3000.
 
 ## Usage
 
-Report #1: Get Optimization Settings:
+SQL:
 
-1. Enter the Shopify domain in the input field labeled "Shopify Domain."
-2. Click the "Get Optimization Settings" button. OR use a tool like Postman, curl, or web browser,(http://localhost:3000/report3
-)to make a GET request to the /report1 endpoint:
+  Query #1: Return how many organizations do not have account plans:
 
-   ![Image 9-7-23 at 5 13 PM](https://github.com/Maedevlin47/Smartrr_Reports_Dashboard/assets/111152027/cbd653f3-0453-41c1-b382-20fc6c1574dc)
-   
-4. The app will display the optimization settings for the entered domain.
+  1. Go to the "queries" folder -> "query1.sql" file 
+  2. Copy the SQL query, query#1.
+  3. Open your terminal and go into the SQlite3 database by entering "sqlite3 tables.db".
+          IMAGE
+  4. Type in or paste the query in query#1.
 
-Report #2: List Organizations:
+  Query #2: Return how many organizations have more than one account plan:
 
-1. Click the "List Organizations" button. OR use a tool like Postman, curl, or web browser to make a GET request to the /report2 endpoint.
-2. The app will display a table with  information about all organizations, including creation date, status, and planName, sorted by creation date. 
+  1. Go to the "queries" folder -> "query2.sql" file 
+  2. Copy the SQL query, query#2.
+  3. Open your terminal and go into the SQlite3 database by entering "sqlite3 tables.db" (see image above).
+  4. Type in or paste the query in query#2.
 
-Report #3: List Cancelled Organizations:
+  Query #2: Return a list of all organizations that have only one account plan:
 
-1. Click the "List Canceled Organizations" button. OR use a tool like Postman, curl, or web browser to make a GET request to the /report2 endpoint.
-2. The app will display a list of organizations with a "CANCELLED" status.
+  1. Go to the "queries" folder -> "query3.sql" file 
+  2. Copy the SQL query, query#3.
+  3. Open your terminal and go into the SQlite3 database by entering "sqlite3 tables.db" (see image above).
+  4. Type in or paste the query in query#3.
 
-Report #4: Get Organization Record:
+  Query #4: Return a List of all organizations that have the PASSWORDLESS feature set to true:
 
-1. Enter the organization name in the input field labeled "Organization Name."
-2. Click the "Get Organization Record" button. OR use a tool like Postman, curl, or web browser to make a GET request to the /report2 endpoint. 
-3. The app will display the organization's record in JSON format.
+  1. Go to the "queries" folder -> "query4.sql" file 
+  2. Copy the SQL query, query#4.
+  3. Open your terminal and go into the SQlite3 database by entering "sqlite3 tables.db" (see image above).
+  4. Type in or paste the query in query#4.
+
+
+Javascript:
+
+  Report #1: Get Optimization Settings:
+
+  1. Enter the Shopify domain in the input field labeled "Shopify Domain."
+  2. Click the "Get Optimization Settings" button. OR use a tool like Postman, curl, or web browser,(http://localhost:3000/report3)to make a GET request to the /report1 endpoint:
+
+    ![Image 9-7-23 at 5 13 PM](https://github.com/Maedevlin47/Smartrr_Reports_Dashboard/assets/111152027/cbd653f3-0453-41c1-b382-20fc6c1574dc)
+    
+  4. The app will display the optimization settings for the entered domain.
+
+  Report #2: List Organizations:
+
+  1. Click the "List Organizations" button. OR use a tool like Postman, curl, or web browser to make a GET request to the /report2 endpoint.
+  2. The app will display a table with  information about all organizations, including creation date, status, and planName, sorted by creation date. 
+
+  Report #3: List Cancelled Organizations:
+
+  1. Click the "List Canceled Organizations" button. OR use a tool like Postman, curl, or web browser to make a GET request to the /report2 endpoint.
+  2. The app will display a list of organizations with a "CANCELLED" status.
+
+  Report #4: Get Organization Record:
+
+  1. Enter the organization name in the input field labeled "Organization Name."
+  2. Click the "Get Organization Record" button. OR use a tool like Postman, curl, or web browser to make a GET request to the /report2 endpoint. 
+  3. The app will display the organization's record in JSON format.
 
 ## Technology Stack
 - JavaScript
