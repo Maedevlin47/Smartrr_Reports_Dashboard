@@ -128,7 +128,7 @@ Javascript:
 - Front-end development with HTML and JavaScript.
 
 ## Credits
--Smartrr Test Data
+- [Smartrr Test Data]
 - [Towards Data Science](https://towardsdatascience.com/5-ways-to-query-your-relational-db-using-javascript-d5499711fc7d)
 - [Javascript.info](https://javascript.info/function-basics )
 - [Developer Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
