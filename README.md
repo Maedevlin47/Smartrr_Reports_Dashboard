@@ -61,8 +61,10 @@ SQL:
   1. Go to the "queries" folder -> "query1.sql" file 
   2. Copy the SQL query, query#1.
   3. Open your terminal and go into the SQlite3 database by entering "sqlite3 tables.db".
-          IMAGE
-  4. Type in or paste the query in query#1.
+
+     ![Image 9-11-23 at 3 08 PM](https://github.com/Maedevlin47/Smartrr_Reports_Dashboard/assets/111152027/8c384357-19e2-426e-948e-c241700437ee)
+    
+  5. Type in or paste the query in query#1.
 
   Query #2: Return how many organizations have more than one account plan:
 
